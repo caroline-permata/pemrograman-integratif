@@ -8,40 +8,40 @@
 - Database -> Firebase 
 
 ## Step 
-### 1. Buat direktori 
+#### 1. Buat direktori 
 ```bash 
 mkdir todo_grpc
 ```
 
-### 2. Pindah ke direktori tersebut 
+#### 2. Pindah ke direktori tersebut 
 ``` bash 
 cd todo_grpc
 ```
 
-### 3. Jalankan `npm init` untuk membuat file `package.json` baru
+#### 3. Jalankan `npm init` untuk membuat file `package.json` baru
 ``` bash
 npm init -y
  ```
 
-### 4. Install dependensi yang diperlukan dengan menggunakan `npm install`
+#### 4. Install dependensi yang diperlukan dengan menggunakan `npm install`
 ``` bash
 npm install @grpc/grpc-js @grpc/proto-loader firebase-admin
  ```
 
-### 5. Buat 3 file 
+#### 5. Buat 3 file 
 - `todo.proto` 
 - `server.js` 
 - `run.js`   
 
-### 6. Unduh file `serviceAccountKey.json` dari Firebase console untuk menghubungkan program dengan Firebase 
+#### 6. Unduh file `serviceAccountKey.json` dari Firebase console untuk menghubungkan program dengan Firebase 
 
-### 7. Untuk menjalankan file tersebut, buka 2 terminal yang berbeda
+#### 7. Untuk menjalankan file tersebut, buka 2 terminal yang berbeda
  - Pada `server.js`, compile menggunakan commad `nodemon server.js` untuk melakukan pembaruan otomatis pada program
 - Pada file `run.js`, compile menggunakan command `node run.js` untuk mengirim perintah dan menguji server gRPC
 
 ## CRUD Function 
 
-### 1. Proto File 
+#### 1. Proto File 
 ``` bash 
 service ToDo {
   rpc Create (Task) returns (TaskId);
@@ -64,7 +64,7 @@ message TaskId {
 message Empty {}
 ```
 
-### 2. Server 
+#### 2. Server 
 Connect to Firebase 
 ``` bash 
 // Load the service account key JSON file
@@ -144,7 +144,7 @@ async function createTask(call, callback) {
   });
 ```
 
-### 3. Testing File 
+#### 3. Testing File 
 Pada saat menguji file server.js, kita membutuhkan file lain yang saya beri nama run.js 
 ``` bash 
 const grpc = require("@grpc/grpc-js");
@@ -332,18 +332,18 @@ Data dummy
 
 ## Dokumentasi 
 
-### 1. Membaca task 
+#### 1. Membaca task 
 <a href='https://www.linkpicture.com/view.php?img=LPic642af7572284c30939856'><img src='https://www.linkpicture.com/q/Screen-Shot-2023-04-03-at-22.16.24.png' type='image'></a>
 
-### 2. Membuat task 
+#### 2. Membuat task 
 <a href='https://www.linkpicture.com/view.php?img=LPic642af7e75c7be1942994858'><img src='https://www.linkpicture.com/q/Screen-Shot-2023-04-03-at-22.27.40.png' type='image'></a>
 
-### 3. Menambahkan task 
+#### 3. Menambahkan task 
 <a href='https://www.linkpicture.com/view.php?img=LPic642af8559ac061048631649'><img src='https://www.linkpicture.com/q/Screen-Shot-2023-04-03-at-22.27.53_2.png' type='image'></a>
 
-### 4. Melakukan edit/update pada task
+#### 4. Melakukan edit/update pada task
 <a href='https://www.linkpicture.com/view.php?img=LPic642af6f8dc4f52020798826'><img src='https://www.linkpicture.com/q/Screen-Shot-2023-04-03-at-22.19.31.png' type='image'></a>
 
-### 5. Menghapus task 
+#### 5. Menghapus task 
 <a href='https://www.linkpicture.com/view.php?img=LPic642af8559ac061048631649'><img src='https://www.linkpicture.com/q/Screen-Shot-2023-04-03-at-22.27.53_2.png' type='image'></a>
 Seperti yang bisa dilihat pada compiler bahwa task dengan ID `D7k2xs5fJUXFXeXFcjf1` berhasil di hapus dan dapat dilihat pada gambar diatas sudah tidak ada task yang memiliki task ID tersebut
