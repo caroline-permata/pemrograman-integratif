@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package todo;
+
+service ToDo {
+  rpc Create (Task) returns (TaskId);
+  rpc Read (TaskId) returns (Task);
+  rpc Update (Task) returns (Empty);
+  rpc Delete (TaskId) returns (Empty);
+}
+
+message Task {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  bool completed = 4;
+}
+
+message TaskId {
+  string id = 1;
+}
+
+message Empty {}
