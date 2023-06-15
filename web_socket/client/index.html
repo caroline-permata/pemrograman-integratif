@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat application</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js"
+      integrity="sha512-oFOCo2/3DtjrJG4N27BjSLQWoiBv171sK6a+JiWjp/7agxC2nCUP358AqzxkBUb5jX8g6CYLPdSKQTbC0weCwA=="
+      crossorigin="anonymous"
+    ></script>
+    
+    <script defer src="chat.js"></script>
+
+    <style>
+      body {
+        font-family: 'Comic Sans MS', 'Arial', sans-serif;
+        box-sizing: border-box;
+        background-color: #fff3f8;
+      }
+      #app {
+        width: 100vw;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+      #chatContainer {
+        height: 80vh;
+        border: 2px dashed #f6b5e8;
+        border-radius: 20px;
+        margin-top: 2rem;
+        padding: 1rem;
+        overflow: scroll;
+        background-color: #ffefff;
+      }
+      #messageForm {
+        width: 100%;
+        position: fixed;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+        background: #fff3f8;
+      }
+      .input {
+        padding: 10px;
+        width: 70%;
+        border: 2px solid #f6b5e8;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        transition: all 0.3s ease-in-out;
+      }
+      .input:active,
+      .input:focus {
+        border-color: #ff80bf;
+        outline: none;
+        box-shadow: 0 0 10px #ff80bf;
+      }
+      .btn {
+        padding: 10px 20px;
+        background-color: #ff80bf;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: #ff40a3;
+      }
+      .message {
+        background-color: #fff0f5;
+        color: #333;
+        font-size: 0.8rem;
+        text-align: center;
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin-top: 1rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .self-message {
+        background-color: #ffd7ea;
+        text-align: right;
+      }
+      .others-message {
+        background-color: #ffd2e8;
+        text-align: left;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="center">Chat application</h1>
+      <div id="chatWrapper"></div>
+      <div class="center">
+        <form id="msgForm">
+          <input class="input center" type="text" id="msgInput" />
+          <button class="btn" type="submit" id="sendBtn">Send!</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
